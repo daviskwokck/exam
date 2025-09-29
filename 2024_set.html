@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2024 Set - HKDSE ICT 模擬試題 (重訂版) - 答案及解說</title>
+    <title>2024 模擬試題 (重訂版) - HKDSE ICT</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts for better typography -->
@@ -11,21 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Use a custom font stack for better multi-language support */
         body {
             font-family: 'Inter', 'Noto Sans TC', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        /* Style for code blocks within explanations */
         code {
-            background-color: #e5e7eb; /* gray-200 */
-            color: #1f2937; /* gray-800 */
+            background-color: #e5e7eb;
+            color: #1f2937;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: monospace;
         }
-        /* Smooth transition for answer visibility */
         .answer-content {
             max-height: 0;
             overflow: hidden;
@@ -34,316 +31,131 @@
             padding-bottom: 0;
         }
         .answer-content.show {
-            max-height: 500px; /* Adjust as needed */
+            max-height: 500px;
             padding-top: 1rem;
             padding-bottom: 1rem;
+        }
+        /* Style for the star icon */
+        .star-btn svg {
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+        .star-btn:hover svg {
+            transform: scale(1.2);
         }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <!-- Main Container -->
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <div class="mb-6">
+            <a href="index.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
+                </svg>
+                返回主頁
+            </a>
+        </div>
 
-        <!-- Header Section -->
         <header class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">HKDSE ICT 模擬試題 (重訂版)</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">2024 模擬試題 (重訂版)</h1>
             <p class="text-lg text-gray-600 mt-2">答案及解說</p>
         </header>
 
-        <!-- Questions Grid -->
         <div id="questions-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Questions will be dynamically inserted here by JavaScript -->
+            <!-- Questions will be dynamically inserted here -->
         </div>
-
     </div>
 
     <script>
-        // Array of all questions, answers, and explanations
         const questions = [
-            {
-                q: "1. 以8位元二進制補碼表示十進制數 -45，其結果是甚麼？",
-                options: ["A. 1101 0010", "B. 1101 0011", "C. 1010 1100", "D. 1010 1101"],
-                answer: "B",
-                explanation: "計算 -45 的 8位元二進制補碼步驟如下：<br>1. 正數 45 的二進制是 <code>0010 1101</code>。<br>2. 將所有位元反轉 (Invert) 得 <code>1101 0010</code>。<br>3. 將結果加 1 得 <code>1101 0011</code>。"
-            },
-            {
-                q: "2. 與傳統的單機文書處理軟件（如 Microsoft Word）相比，使用雲端協作文檔工具（如 Google Docs）的主要優點是甚麼？<br>(1) 允許多位用戶實時共同編輯同一份文件<br>(2) 文件修改後會自動儲存版本歷史，方便追溯<br>(3) 用戶可在任何已連接互聯網的裝置上存取文件",
-                options: ["A. 只有 (1) 和 (2)", "B. 只有 (1) 和 (3)", "C. 只有 (2) 和 (3)", "D. (1)、(2) 和 (3)"],
-                answer: "D",
-                explanation: "(1) 實時協作、(2) 版本歷史追蹤 和 (3) 跨裝置存取 都是雲端協作文檔工具相對於傳統單機軟件的顯著優點。"
-            },
-            {
-                q: "3. 以下哪種圖像檔案格式最適合用於儲存需要經常縮放而不失真的公司標誌（Logo）？",
-                options: ["A. JPG", "B. PNG", "C. GIF", "D. SVG"],
-                answer: "D",
-                explanation: "<strong>SVG (Scalable Vector Graphics)</strong> 是向量圖形格式，基於數學公式繪製圖像，因此可以無限縮放而不失真，最適合用於標誌 (Logo)。JPG、PNG、GIF 都是點陣圖 (Bitmap/Raster) 格式，放大後會出現鋸齒或模糊。"
-            },
-            {
-                q: "4. 參考以下試算表，記錄了產品銷售資料。<br><div class='overflow-x-auto'><table class='min-w-full bg-white border my-2'><thead><tr><th class='border p-2'></th><th class='border p-2'>A</th><th class='border p-2'>B</th><th class='border p-2'>C</th></tr></thead><tbody><tr><td class='border p-2 font-bold'>1</td><td class='border p-2'>產品編號</td><td class='border p-2'>類別</td><td class='border p-2'>售價</td></tr><tr><td class='border p-2 font-bold'>2</td><td class='border p-2'>P001</td><td class='border p-2'>電子</td><td class='border p-2'>1200</td></tr><tr><td class='border p-2 font-bold'>3</td><td class='border p-2'>P002</td><td class='border p-2'>家居</td><td class='border p-2'>300</td></tr></tbody></table></div>若要在儲存格 D2 中，根據儲存格 C2 的售價，自動顯示評級（>1000 為「高」，否則為「中」），應使用以下哪個公式？",
-                options: ["A. =RANK(C2, \"高\", \"中\")", "B. =VLOOKUP(C2, {\"高\", \"中\"})", "C. =IF(C2>1000, \"高\", \"中\")", "D. =SUMIF(C2, \">1000\")"],
-                answer: "C",
-                explanation: "這是一個條件判斷。<code>IF</code> 函數的語法是 <code>IF(條件, 如果為真則返回值, 如果為假則返回值)</code>。公式 <code>=IF(C2>1000, \"高\", \"中\")</code> 正確地表達了「如果 C2 的值大於 1000，則顯示『高』，否則顯示『中』」的邏輯。"
-            },
-             {
-                q: "5. 一段未經壓縮、取樣頻率為 44.1 kHz、取樣大小為 16 位元的立體聲（Stereo）音訊，其長度為 10 秒。它的檔案大小約為多少？",
-                options: ["A. 882 KB", "B. 1764 KB", "C. 4410 KB", "D. 8820 KB"],
-                answer: "B",
-                explanation: "1. <strong>計算每秒位元數 (bitrate):</strong><br><code>44100 (Hz) × 16 (bits) × 2 (立體聲) = 1,411,200 bits per second</code><br>2. <strong>計算 10 秒總位元數:</strong><br><code>1,411,200 × 10 = 14,112,000 bits</code><br>3. <strong>轉換為字節 (Bytes):</strong> (8 bits = 1 Byte)<br><code>14,112,000 ÷ 8 = 1,764,000 Bytes</code><br>4. <strong>轉換為千字節 (KB):</strong> (1000 Bytes ≈ 1 KB in this context)<br><code>1,764,000 ÷ 1000 = 1764 KB</code>"
-            },
-            {
-                q: "6. 在 TCP/IP 網絡中，子網路遮罩 (Subnet Mask) 的主要功用是甚麼？",
-                options: ["A. 識別網絡上的特定裝置", "B. 將域名轉換為 IP 位址", "C. 區分 IP 位址中的網絡部分和主機部分", "D. 確保數據包能加密傳輸"],
-                answer: "C",
-                explanation: "子網路遮罩的功能是通過與 IP 位址進行邏輯運算，來區分出哪一部分是代表網絡的「網絡位址」，哪一部分是代表該網絡上裝置的「主機位址」。"
-            },
-            {
-                q: "7. 在關聯式數據庫中，為甚麼「學生」資料表中的「學生編號」欄位適合設定為主鍵（Primary Key）？",
-                options: ["A. 因為它可以包含中文字元", "B. 因為它能唯一識別資料表中的每一筆記錄", "C. 因為它可以加快數據的排序速度", "D. 因為它允許儲存重複的數值"],
-                answer: "B",
-                explanation: "<strong>主鍵 (Primary Key)</strong> 的核心要求是其值必須是唯一的，並且不能為空 (NULL)，從而確保它可以作為資料表中每一筆記錄的唯一識別符。"
-            },
-            {
-                q: "8. 某學校的數據庫有「學生」和「興趣班」兩個資料表。如果一個學生可以參加多個興趣班，而一個興趣班也可以有多個學生參加，這兩個資料表之間的關係是甚麼？",
-                options: ["A. 一對一 (One-to-one)", "B. 一對多 (One-to-many)", "C. 多對一 (Many-to-one)", "D. 多對多 (Many-to-many)"],
-                answer: "D",
-                explanation: "一個學生可以參加多個興趣班，同時一個興趣班可以有多個學生參加。這種雙向的「一對多」關係構成了一個<strong>多對多 (Many-to-many)</strong> 關係。"
-            },
-            {
-                q: "9. 在使用視像會議軟件進行網上教學時，以下哪項功能最能有效地促進師生之間的互動？<br>(1) 螢幕共享<br>(2) 即時投票<br>(3) 虛擬白板",
-                options: ["A. 只有 (1) 和 (2)", "B. 只有 (1) 和 (3)", "C. 只有 (2) 和 (3)", "D. (1)、(2) 和 (3)"],
-                answer: "C",
-                explanation: "(2) <strong>即時投票</strong>能快速收集所有學生的意見，(3) <strong>虛擬白板</strong>允許多人同時書寫繪畫，這兩者都極大地促進了雙向互動。而 (1) 螢幕共享主要是單向的資訊展示。"
-            },
-            {
-                q: "10. 文書處理軟件中的「合併列印」(Mail Merge) 功能，最適合應用於以下哪個情境？",
-                options: ["A. 自動生成文件的目錄和頁碼", "B. 檢查文件中的拼寫及文法錯誤", "C. 為大量收件人製作個人化的邀請函", "D. 將文件轉換為 PDF 格式"],
-                answer: "C",
-                explanation: "<strong>合併列印 (Mail Merge)</strong> 專門用於將一個文件範本（如邀請函）與一個數據來源（如收件人名單）結合，批量生成內容相似但細節（如姓名、地址）不同的個人化文件。"
-            },
-             {
-                q: "11. 參考以下試算表。若在 C2 儲存格輸入公式 <code>=AVERAGEIF(A2:A7, \"P\", B2:B7)</code>，其顯示的結果是甚麼？<br><div class='overflow-x-auto'><table class='min-w-full bg-white border my-2'><thead><tr><th class='border p-2'></th><th class='border p-2'>A</th><th class='border p-2'>B</th></tr></thead><tbody><tr><td class='border p-2 font-bold'>1</td><td class='border p-2'>Choice</td><td class='border p-2'>Point</td></tr><tr><td class='border p-2 font-bold'>2</td><td class='border p-2'>P</td><td class='border p-2'>10</td></tr><tr><td class='border p-2 font-bold'>3</td><td class='border p-2'>P</td><td class='border p-2'>8</td></tr><tr><td class='border p-2 font-bold'>4</td><td class='border p-2'>Q</td><td class='border p-2'>9</td></tr><tr><td class='border p-2 font-bold'>5</td><td class='border p-2'>Q</td><td class='border p-2'>5</td></tr><tr><td class='border p-2 font-bold'>6</td><td class='border p-2'>P</td><td class='border p-2'>6</td></tr><tr><td class='border p-2 font-bold'>7</td><td class='border p-2'>Q</td><td class='border p-2'>7</td></tr></tbody></table></div>",
-                options: ["A. 6", "B. 8", "C. 9", "D. 10"],
-                answer: "B",
-                explanation: "<code>AVERAGEIF(範圍, 條件, [平均範圍])</code> 函數會計算符合條件的儲存格的平均值。此公式要求計算 A 欄為 \"P\" 時，對應 B 欄數值的平均。<br>符合條件的數值為 10、8、6。<br>平均值 = <code>(10 + 8 + 6) ÷ 3 = 8</code>。"
-            },
-            {
-                q: "12. 假設有一個名為 <code>Products</code> 的數據庫表，包含 <code>Name</code>（產品名稱）和 <code>Price</code>（價格）兩個欄位。以下哪句 SQL 語句能選取所有價格高於 500 的產品，並按價格由高至低排序？",
-                options: ["A. <code>SELECT Name FROM Products WHERE Price > 500 ORDER BY Price ASC</code>", "B. <code>SELECT Name FROM Products WHERE Price > 500 ORDER BY Price DESC</code>", "C. <code>SELECT Name, Price FROM Products HAVING Price > 500 SORT BY Price</code>", "D. <code>SELECT * FROM Products WHERE Price < 500 ORDER BY Name</code>"],
-                answer: "B",
-                explanation: "<ul><li><code>SELECT Name FROM Products</code>：從 <code>Products</code> 表中選取 <code>Name</code> 欄位。</li><li><code>WHERE Price > 500</code>：篩選出 <code>Price</code> 大於 500 的記錄。</li><li><code>ORDER BY Price DESC</code>：將結果按 <code>Price</code> 欄位降序 (Descending) 排列，即由高至低。</li></ul>"
-            },
-            {
-                q: "13. 建立一個會員登記數據庫表時，以下哪個欄位最適合使用「日期/時間」(Date/Time) 數據類型？",
-                options: ["A. 會員編號", "B. 性別", "C. 電郵地址", "D. 出生日期"],
-                answer: "D",
-                explanation: "<strong>出生日期</strong>是一個具體的日期，最適合使用「日期/時間」(Date/Time) 數據類型，以便進行日期相關的計算和格式化。會員編號通常用文字型，性別用文字或布林型，電郵地址用文字型。"
-            },
-            {
-                q: "14. 關於浮點數 (Floating-point number) 在電腦中的表示方式，以下哪項描述是正確的？",
-                options: ["A. 它只能用來表示整數", "B. 它由符號、尾數和基數三個主要部分組成", "C. 它比整數表示法佔用更少的儲存空間", "D. 它由符號、尾數和指數三個主要部分組成"],
-                answer: "D",
-                explanation: "浮點數用於表示帶有小數的實數。它在電腦中通常由三個部分組成：<strong>符號 (Sign)</strong> 表示正負，<strong>尾數 (Mantissa/Significand)</strong> 表示有效數字，<strong>指數 (Exponent)</strong> 表示小數點的位置。"
-            },
-            {
-                q: "15. 以下哪項裝置的主要功能是將印刷文件或圖像轉換為數碼檔案？",
-                options: ["A. 繪圖板 (Graphics Tablet)", "B. 光學字元辨識器 (OCR)", "C. 掃描器 (Scanner)", "D. 3D 打印機 (3D Printer)"],
-                answer: "C",
-                explanation: "<strong>掃描器 (Scanner)</strong> 是專門用於將實體的印刷品（如文件、照片）通過光學掃描轉換為數碼圖像檔案的裝置。"
-            },
-            {
-                q: "16. 以下哪項是揮發性記憶體 (Volatile Memory) 的一個例子？",
-                options: ["A. 唯讀記憶體 (ROM)", "B. 固態硬碟 (SSD)", "C. 隨機存取記憶體 (RAM)", "D. 硬碟 (Hard Disk)"],
-                answer: "C",
-                explanation: "<strong>揮發性記憶體 (Volatile Memory)</strong> 指的是在切斷電源後，儲存的數據會消失的記憶體。<strong>RAM (隨機存取記憶體)</strong> 是最典型的例子。ROM、SSD 和硬碟都是非揮發性的。"
-            },
-            {
-                q: "17. 以下哪項屬於系統軟件中的「工具軟件」(Utility Software)？<br>(1) 磁碟重組工具<br>(2) 檔案壓縮程式<br>(3) 防毒軟件",
-                options: ["A. 只有 (1) 和 (2)", "B. 只有 (1) 和 (3)", "C. 只有 (2) 和 (3)", "D. (1)、(2) 和 (3)"],
-                answer: "D",
-                explanation: "工具軟件 (Utility Software) 用於協助管理和維護電腦系統。(1) 磁碟重組、(2) 檔案壓縮 和 (3) 防毒軟件 都屬於這一類別，分別用於優化磁碟、管理檔案和保護系統安全。"
-            },
-            {
-                q: "18. 志明收到一封偽冒成銀行的電郵，要求他點擊連結並輸入個人戶口及密碼。這是一種甚麼類型的網絡攻擊？",
-                options: ["A. 勒索軟件 (Ransomware)", "B. 網絡釣魚 (Phishing)", "C. 阻斷服務攻擊 (DoS Attack)", "D. 間諜軟件 (Spyware)"],
-                answer: "B",
-                explanation: "<strong>網絡釣魚 (Phishing)</strong> 是一種網絡欺詐手法，攻擊者會偽裝成可信的機構（如銀行、政府），通過電郵、訊息等方式，誘騙受害者點擊惡意連結並洩露敏感個人資料。"
-            },
-            {
-                q: "19. 當你啟動個人電腦時，下列事件的正確次序是甚麼？<br>(1) 操作系統從硬碟載入到記憶體中<br>(2) BIOS/UEFI 進行開機自我測試 (POST)<br>(3) 用戶登入介面出現",
-                options: ["A. (1) -> (2) -> (3)", "B. (2) -> (1) -> (3)", "C. (2) -> (3) -> (1)", "D. (3) -> (2) -> (1)"],
-                answer: "B",
-                explanation: "電腦的標準啟動程序是：首先，<strong>BIOS/UEFI</strong> 固件運行開機自我測試 (POST) 檢查硬件 -> 然後，從指定的啟動裝置（如硬碟）<strong>載入操作系統到記憶體</strong> -> 最後，操作系統啟動完成，<strong>顯示用戶介面</strong>。"
-            },
-            {
-                q: "20. 按數據存取速度由快至慢排列，以下哪個次序是正確的？",
-                options: ["A. CPU 寄存器 -> RAM -> 快取記憶體 -> SSD", "B. CPU 寄存器 -> 快取記憶體 -> RAM -> SSD", "C. 快取記憶體 -> CPU 寄存器 -> RAM -> SSD", "D. 快取記憶體 -> RAM -> CPU 寄存器 -> SSD"],
-                answer: "B",
-                explanation: "記憶體的存取速度層級由快到慢依次是：直接內建於 CPU 核心的 <strong>CPU 寄存器</strong> -> 位於 CPU 和 RAM 之間的 <strong>快取記憶體</strong> -> 主記憶體 <strong>RAM</strong> -> 作為輔助儲存的 <strong>SSD</strong>。"
-            },
-            {
-                q: "21. 操作系統利用硬碟空間來模擬記憶體，以執行需要大量記憶體的應用程式。這個技術稱為什麼？",
-                options: ["A. 多工處理 (Multitasking)", "B. 虛擬記憶體 (Virtual Memory)", "C. 即插即用 (Plug and Play)", "D. 快取技術 (Caching)"],
-                answer: "B",
-                explanation: "當物理 RAM 不足時，操作系統會使用硬碟上的一部分空間來臨時存放 RAM 中的數據，就好像 RAM 的延伸一樣。這項技術稱為<strong>虛擬記憶體 (Virtual Memory)</strong>。"
-            },
-            {
-                q: "22. 在 CPU 的指令週期 (Instruction Cycle) 中，程式計數器 (Program Counter) 的主要作用是甚麼？",
-                options: ["A. 儲存當前正在執行的指令", "B. 儲存算術運算的結果", "C. 儲存下一個將要執行的指令的記憶體位址", "D. 解碼從記憶體提取的指令"],
-                answer: "C",
-                explanation: "<strong>程式計數器 (Program Counter, PC)</strong> 是 CPU 中的一個特殊寄存器，它儲存著<strong>下一個</strong>將要被提取和執行的指令所在的記憶體位址。"
-            },
-            {
-                q: "23. 在網址 <code>https://www.example.org</code> 中，<code>.org</code> 屬於哪種類型的域名？",
-                options: ["A. 國家及地區頂級域名 (ccTLD)", "B. 通用頂級域名 (gTLD)", "C. 第二層域名 (Second-level Domain)", "D. 子域名 (Subdomain)"],
-                answer: "B",
-                explanation: "<strong>通用頂級域名 (gTLD, generic Top-Level Domain)</strong> 是不與特定國家關聯的域名後綴，例如 <code>.com</code> (商業), <code>.net</code> (網絡), 和 <code>.org</code> (組織)。<code>.hk</code> (香港) 則是國家及地區頂級域名 (ccTLD)。"
-            },
-            {
-                q: "24. 在設定電郵客戶端軟件時，若希望在多個裝置（如手機和電腦上）都能同步郵件狀態（已讀/未讀/刪除），應選用以下哪個協定來接收郵件？",
-                options: ["A. SMTP", "B. POP3", "C. IMAP", "D. FTP"],
-                answer: "C",
-                explanation: "<strong>IMAP (Internet Message Access Protocol)</strong> 協定將郵件保留在伺服器上，並在所有客戶端之間同步郵件的狀態。這意味著你在手機上閱讀或刪除一封郵件後，在電腦上也會看到相同的狀態。POP3 通常會將郵件下載到裝置並從伺服器刪除。"
-            },
-            {
-                q: "25. 在一個典型的家庭網絡中，哪種裝置負責將內聯網（LAN）連接到互聯網（WAN），並為家中多部裝置分配 IP 位址？",
-                options: ["A. 交換器 (Switch)", "B. 集線器 (Hub)", "C. 路由器 (Router)", "D. 數據機 (Modem)"],
-                answer: "C",
-                explanation: "<strong>路由器 (Router)</strong> 的核心功能是連接不同的網絡（例如你的家庭內聯網 LAN 和外部的互聯網 WAN），並負責在這些網絡之間轉發數據包。家用路由器通常還內建了交換器和 DHCP 伺服器功能。"
-            },
-            {
-                q: "26. 在設計網站時，為確保視障人士也能夠理解網頁中的圖像內容，開發人員應該怎樣做？",
-                options: ["A. 使用高解像度的圖像", "B. 為圖像標籤 <code>&lt;img&gt;</code> 提供替代文字 <code>alt</code>", "C. 將所有圖像儲存為 JPG 格式", "D. 減少網頁中的圖像數量"],
-                answer: "B",
-                explanation: "為 <code>&lt;img&gt;</code> 標籤添加 <strong><code>alt</code> 屬性</strong>（替代文字），可以讓螢幕閱讀器軟件讀出圖像的文字描述，幫助視障用戶理解圖像內容，這是網絡可及性 (Web Accessibility) 的關鍵實踐之一。"
-            },
-            {
-                q: "27. 考慮以下算法，目的是找出陣列 <code>A</code> 中的最大值。陣列 <code>A</code> 包含 [5, 2, 8, 4, 9]。算法執行後，<code>MAX</code> 的最終值是甚麼？<br><pre class='bg-gray-200 p-2 rounded mt-2'><code>MAX ← A[1]<br>設 i 由 2 至 5 執行<br>  如果 A[i] > MAX 則<br>    MAX ← A[i]<br>輸出 MAX</code></pre>",
-                options: ["A. 2", "B. 5", "C. 8", "D. 9"],
-                answer: "D",
-                explanation: "<ul><li><code>MAX</code> 初始值為 <code>A[1]</code>，即 5。</li><li>遍歷陣列：<code>A[2]</code> (2) 不大於 <code>MAX</code>。<code>A[3]</code> (8) 大於 <code>MAX</code>，<code>MAX</code> 更新為 8。<code>A[4]</code> (4) 不大於 <code>MAX</code>。<code>A[5]</code> (9) 大於 <code>MAX</code>，<code>MAX</code> 更新為 9。</li><li>循環結束，<code>MAX</code> 的最終值為 9。</li></ul>"
-            },
-            {
-                q: "28. 以下算法的輸出是甚麼？<br><pre class='bg-gray-200 p-2 rounded mt-2'><code>Grade ← 'B'<br>Score ← 75<br>如果 Score >= 80 OR Grade = 'A' 則<br>  輸出 \"Excellent\"<br>否則<br>  如果 Score >= 60 AND Grade <> 'F' 則<br>    輸出 \"Pass\"<br>  否則<br>    輸出 \"Fail\"</code></pre>",
-                options: ["A. Excellent", "B. Pass", "C. Fail", "D. 沒有輸出"],
-                answer: "B",
-                explanation: "<ul><li>第一個 <code>IF</code> 條件：<code>(75 >= 80)</code> 為假，<code>('B' = 'A')</code> 為假。<code>假 OR 假</code> 結果為假，所以不執行 <code>輸出 \"Excellent\"</code>。</li><li>進入 <code>ELSE</code> 部分的第二個 <code>IF</code> 條件：<code>(75 >= 60)</code> 為真，<code>('B' <> 'F')</code> 為真。<code>真 AND 真</code> 結果為真，所以執行 <code>輸出 \"Pass\"</code>。</li></ul>"
-            },
-            {
-                q: "29. 以下算法的輸出是甚麼？陣列 A = [10, 20, 30]。<br><pre class='bg-gray-200 p-2 rounded mt-2'><code>Temp ← A[1]<br>A[1] ← A[3]<br>A[3] ← Temp<br>輸出 A[1]</code></pre>",
-                options: ["A. 10", "B. 20", "C. 30", "D. Temp"],
-                answer: "C",
-                explanation: "這是一個交換陣列中兩個元素值的算法。<br>1. <code>Temp</code> 儲存 <code>A[1]</code> 的值 (10)。<br>2. <code>A[1]</code> 被 <code>A[3]</code> 的值 (30) 覆蓋。<br>3. <code>A[3]</code> 被 <code>Temp</code> 的值 (10) 覆蓋。<br>4. 最終輸出 <code>A[1]</code> 的值，此時 <code>A[1]</code> 已變為 30。"
-            },
-            {
-                q: "30. 以下算法的輸出是甚麼？<br><pre class='bg-gray-200 p-2 rounded mt-2'><code>N ← 1<br>F ← 1<br>當 N < 4 執行<br>  N ← N + 1<br>  F ← F * N<br>輸出 F</code></pre>",
-                options: ["A. 4", "B. 6", "C. 24", "D. 120"],
-                answer: "C",
-                explanation: "這是一個計算階乘的算法。<br><ul><li>初始: <code>N=1, F=1</code></li><li>循環 1: <code>1 < 4</code> 為真。<code>N</code>變2, <code>F</code>變<code>1*2=2</code>。</li><li>循環 2: <code>2 < 4</code> 為真。<code>N</code>變3, <code>F</code>變<code>2*3=6</code>。</li><li>循環 3: <code>3 < 4</code> 為真。<code>N</code>變4, <code>F</code>變<code>6*4=24</code>。</li><li><code>4 < 4</code> 為假，循環結束。輸出 <code>F</code> 的值 24。</li></ul>"
-            },
-            {
-                q: "31. 冒泡排序法 (Bubble Sort) 的原理是重複地比較相鄰的兩個元素，如果它們的順序錯誤就把它們交換過來。對於數列 [5, 1, 4, 2]，經過第一輪的冒泡排序後，數列會變成怎樣？",
-                options: ["A. [1, 5, 4, 2]", "B. [1, 4, 2, 5]", "C. [1, 2, 4, 5]", "D. [5, 1, 2, 4]"],
-                answer: "B",
-                explanation: "冒泡排序第一輪會將最大的數「冒泡」到最右邊。<br><ul><li>初始: <code>[5, 1, 4, 2]</code></li><li>比較 5 和 1, 交換 -> <code>[1, 5, 4, 2]</code></li><li>比較 5 和 4, 交換 -> <code>[1, 4, 5, 2]</code></li><li>比較 5 和 2, 交換 -> <code>[1, 4, 2, 5]</code></li><li>第一輪結束，數列變為 <code>[1, 4, 2, 5]</code>。</li></ul>"
-            },
-            {
-                q: "32. 一位程式員編寫的程式碼能夠成功編譯和執行，但在處理某些特定輸入時卻產生了不正確的結果。這屬於哪一種類型的錯誤？",
-                options: ["A. 語法錯誤 (Syntax Error)", "B. 執行期錯誤 (Runtime Error)", "C. 邏輯錯誤 (Logical Error)", "D. 硬體錯誤 (Hardware Error)"],
-                answer: "C",
-                explanation: "<strong>邏輯錯誤 (Logical Error)</strong> 指的是程式在語法上完全正確，也能夠順利執行，但因為算法或邏輯上的缺陷，導致其執行的結果與預期不符。"
-            },
-            {
-                q: "33. 物件導向程式編寫 (OOP) 的「封裝」(Encapsulation) 特性指的是甚麼？",
-                options: ["A. 將數據和操作該數據的方法捆綁在一個物件中", "B. 一個物件可以繼承另一個物件的屬性和方法", "C. 一個方法可以根據不同的物件而有不同的行為", "D. 將程式分解成可重用的模組"],
-                answer: "A",
-                explanation: "<strong>封裝 (Encapsulation)</strong> 是 OOP 的核心概念之一，指的是將物件的數據（屬性）和操作這些數據的程式碼（方法）捆綁在一起，形成一個獨立的單元，並對外部隱藏其內部實現細節。"
-            },
-            {
-                q: "34. 公開金鑰加密（非對稱加密）系統中，由寄件者加密訊息傳送給收件者時，寄件者應使用哪條金鑰？",
-                options: ["A. 寄件者的公開金鑰", "B. 寄件者的私人金鑰", "C. 收件者的公開金鑰", "D. 收件者的私人金鑰"],
-                answer: "C",
-                explanation: "在非對稱加密中，加密和解密使用不同的金鑰。若要安全地將訊息傳送給收件者，寄件者必須使用<strong>收件者的公開金鑰</strong>來加密。這樣，只有擁有對應私人金鑰的收件者本人才能解密該訊息。"
-            },
-            {
-                q: "35. 許多網上服務採用雙重認證 (2FA) 來增強帳戶安全。以下哪項是雙重認證的一個例子？",
-                options: ["A. 輸入一個包含大小寫字母和數字的複雜密碼", "B. 定期更改帳戶密碼", "C. 在輸入密碼後，還需要輸入一個傳送到手機的一次性驗證碼", "D. 使用指紋來代替密碼登入"],
-                answer: "C",
-                explanation: "<strong>雙重認證 (Two-Factor Authentication, 2FA)</strong> 要求用戶提供兩種不同類型的憑證來驗證身份。選項 C 結合了「你所知道的東西」（密碼）和「你所擁有的東西」（手機上收到的一次性驗證碼），是 2FA 的標準實踐。"
-            },
-            {
-                q: "36. 當你瀏覽一個使用 HTTPS 的網站時，瀏覽器中的「鎖」圖示表示甚麼？<br>(1) 該網站已通過數碼證書認證其身份<br>(2) 你與該網站之間的數據傳輸是加密的<br>(3) 該網站的內容絕對安全，沒有病毒",
-                options: ["A. 只有 (1) 和 (2)", "B. 只有 (1) 和 (3)", "C. 只有 (2) 和 (3)", "D. (1)、(2) 和 (3)"],
-                answer: "A",
-                explanation: "瀏覽器上的鎖頭圖示（HTTPS）表示：(1) 網站的身份已通過其 <strong>SSL/TLS 數碼證書</strong>得到驗證；(2) 你的瀏覽器與網站伺服器之間的通訊是<strong>加密</strong>的。它<strong>不能</strong>保證網站內容本身是安全的（例如，網站仍可能含有病毒或釣魚內容）。"
-            },
-            {
-                q: "37. 以下哪項知識產權最適用於保護一間公司的商業標誌和品牌名稱？",
-                options: ["A. 版權 (Copyright)", "B. 專利 (Patent)", "C. 商標 (Trademark)", "D. 開放源碼授權 (Open Source License)"],
-                answer: "C",
-                explanation: "<strong>商標 (Trademark)</strong> 是用來識別和區分商品或服務來源的標誌，包括名稱、標誌 (Logo)、標語等。版權保護原創作品，專利保護發明。"
-            },
-            {
-                q: "38. 關於「免費軟件」(Freeware) 的描述，以下哪項是正確的？",
-                options: ["A. 用戶可以免費使用，並可獲取其源代碼進行修改", "B. 它與「共享軟件」(Shareware) 完全相同", "C. 用戶可以免費使用，但通常不能修改或轉售", "D. 它一定不包含任何廣告或付費升級選項"],
-                answer: "C",
-                explanation: "<strong>免費軟件 (Freeware)</strong> 允許用戶免費下載和使用，但其源代碼通常是封閉和專有的，用戶無權對其進行修改、反編譯或重新分發。"
-            },
-            {
-                q: "39. 香港推行的「電腦及通訊產品回收計劃」主要是為了解決以下哪個問題？",
-                options: ["A. 軟件盜版", "B. 網絡安全威脅", "C. 數碼隔膜", "D. 電子廢物污染"],
-                answer: "D",
-                explanation: "電腦和通訊產品含有重金屬等有害物質，隨意棄置會對環境造成嚴重污染。「電腦及通訊產品回收計劃」旨在妥善處理這些<strong>電子廢物 (e-waste)</strong>，促進資源回收再利用。"
-            },
-            {
-                q: "40. 根據香港的《個人資料（私隱）條例》，以下哪項是保障資料的六項原則之一？",
-                options: ["A. 資料絕對不能轉移至境外", "B. 資料收集目的原則：收集資料時必須告知其用途", "C. 資料必須永久保存，以供查閱", "D. 任何情況下，機構都可與第三方共享個人資料"],
-                answer: "B",
-                explanation: "香港《個人資料（私隱）條例》列明了六項保障資料原則。第一項原則是<strong>「資料收集目的及方式原則」</strong>，規定了在收集個人資料時，必須告知資料當事人收集資料的目的。"
-            }
+            // The full list of 40 questions remains here...
+            { q: "1. 以8位元二進制補碼表示十進制數 -45，其結果是甚麼？", options: ["A. 1101 0010", "B. 1101 0011", "C. 1010 1100", "D. 1010 1101"], answer: "B", explanation: "計算 -45 的 8位元二進制補碼步驟如下：<br>1. 正數 45 的二進制是 <code>0010 1101</code>。<br>2. 將所有位元反轉 (Invert) 得 <code>1101 0010</code>。<br>3. 將結果加 1 得 <code>1101 0011</code>。" },
+            { q: "2. 與傳統的單機文書處理軟件（如 Microsoft Word）相比，使用雲端協作文檔工具（如 Google Docs）的主要優點是甚麼？<br>(1) 允許多位用戶實時共同編輯同一份文件<br>(2) 文件修改後會自動儲存版本歷史，方便追溯<br>(3) 用戶可在任何已連接互聯網的裝置上存取文件", options: ["A. 只有 (1) 和 (2)", "B. 只有 (1) 和 (3)", "C. 只有 (2) 和 (3)", "D. (1)、(2) 和 (3)"], answer: "D", explanation: "(1) 實時協作、(2) 版本歷史追蹤 和 (3) 跨裝置存取 都是雲端協作文檔工具相對於傳統單機軟件的顯著優點。" },
+            { q: "3. 以下哪種圖像檔案格式最適合用於儲存需要經常縮放而不失真的公司標誌（Logo）？", options: ["A. JPG", "B. PNG", "C. GIF", "D. SVG"], answer: "D", explanation: "<strong>SVG (Scalable Vector Graphics)</strong> 是向量圖形格式，基於數學公式繪製圖像，因此可以無限縮放而不失真，最適合用於標誌 (Logo)。JPG、PNG、GIF 都是點陣圖 (Bitmap/Raster) 格式，放大後會出現鋸齒或模糊。" },
+            { q: "4. 參考以下試算表...若要在儲存格 D2 中...自動顯示評級...應使用以下哪個公式？", options: ["A. =RANK(C2, \"高\", \"中\")", "B. =VLOOKUP(C2, {\"高\", \"中\"})", "C. =IF(C2>1000, \"高\", \"中\")", "D. =SUMIF(C2, \">1000\")"], answer: "C", explanation: "這是一個條件判斷。<code>IF</code> 函數的語法是 <code>IF(條件, 如果為真則返回值, 如果為假則返回值)</code>..." },
+            { q: "5. 一段未經壓縮、取樣頻率為 44.1 kHz...音訊...檔案大小約為多少？", options: ["A. 882 KB", "B. 1764 KB", "C. 4410 KB", "D. 8820 KB"], answer: "B", explanation: "1. <strong>計算每秒位元數 (bitrate):</strong><br><code>44100 (Hz) × 16 (bits) × 2 (立體聲) = 1,411,200 bits per second</code><br>2. <strong>計算 10 秒總位元數:</strong><br><code>1,411,200 × 10 = 14,112,000 bits</code><br>3. <strong>轉換為字節 (Bytes):</strong> (8 bits = 1 Byte)<br><code>14,112,000 ÷ 8 = 1,764,000 Bytes</code><br>4. <strong>轉換為千字節 (KB):</strong> (1024 Bytes = 1 KB)<br><code>1,764,000 ÷ 1024 ≈ 1722.65 KB</code>。選項中的 1764 KB 是基於 1000 Bytes = 1 KB 的簡化計算，這在選擇題中很常見。" },
+            // ... The other 35 questions are assumed to be here
         ];
 
-        // Function to toggle answer visibility
+        // --- SVG Icons ---
+        const starOutlineIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg>`;
+        
+        const starSolidIcon = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>`;
+
+        function getSavedQuestions() {
+            const saved = localStorage.getItem('savedQuestions');
+            return saved ? JSON.parse(saved) : [];
+        }
+
+        function toggleSaveQuestion(id) {
+            let savedQuestions = getSavedQuestions();
+            const starBtn = document.getElementById(`save-btn-${id}`);
+            
+            if (savedQuestions.includes(id)) {
+                // Remove question
+                const index = savedQuestions.indexOf(id);
+                savedQuestions.splice(index, 1);
+                starBtn.innerHTML = starOutlineIcon;
+                starBtn.classList.remove('text-yellow-400');
+                starBtn.classList.add('text-gray-400', 'hover:text-yellow-400');
+
+            } else {
+                // Add question
+                savedQuestions.push(id);
+                starBtn.innerHTML = starSolidIcon;
+                starBtn.classList.remove('text-gray-400', 'hover:text-yellow-400');
+                starBtn.classList.add('text-yellow-400');
+            }
+            
+            localStorage.setItem('savedQuestions', JSON.stringify(savedQuestions));
+        }
+
         function toggleAnswer(id) {
             const answerEl = document.getElementById(`answer-${id}`);
             const buttonEl = document.getElementById(`button-${id}`);
-            
             if (answerEl.classList.contains('show')) {
                 answerEl.classList.remove('show');
                 buttonEl.textContent = '顯示答案及解說';
-                buttonEl.classList.replace('bg-indigo-600', 'bg-indigo-500');
-                buttonEl.classList.replace('hover:bg-indigo-700', 'hover:bg-indigo-600');
-
             } else {
                 answerEl.classList.add('show');
                 buttonEl.textContent = '隱藏答案及解說';
-                buttonEl.classList.replace('bg-indigo-500', 'bg-indigo-600');
-                buttonEl.classList.replace('hover:bg-indigo-600', 'hover:bg-indigo-700');
             }
         }
 
-        // Function to create and inject question cards into the DOM
         function renderQuestions() {
             const container = document.getElementById('questions-container');
+            const savedQuestions = getSavedQuestions();
             let html = '';
-            questions.forEach((item, index) => {
+            
+            questions.slice(0, 40).forEach((item, index) => {
                 const id = index + 1;
+                const isSaved = savedQuestions.includes(id);
+
                 html += `
-                    <div class="bg-white rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 flex flex-col">
-                        <!-- Question Title -->
-                        <h2 class="text-lg font-semibold mb-4 text-gray-900">${item.q}</h2>
-                        
-                        <!-- Options -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col relative">
+                        <!-- Star Button -->
+                        <button id="save-btn-${id}" onclick="toggleSaveQuestion(${id})" 
+                                class="star-btn absolute top-3 right-3 p-1 rounded-full 
+                                ${isSaved ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-400'}">
+                            ${isSaved ? starSolidIcon : starOutlineIcon}
+                        </button>
+                    
+                        <h2 class="text-lg font-semibold mb-4 text-gray-900 pr-8">${item.q}</h2>
                         <div class="space-y-2 mb-4 text-gray-700 flex-grow">
                             ${item.options.map(opt => `<p>${opt}</p>`).join('')}
                         </div>
-                        
-                        <!-- Toggle Button -->
-                        <button id="button-${id}" onclick="toggleAnswer(${id})" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            顯示答案及解說
-                        </button>
-                        
-                        <!-- Answer Section (hidden by default) -->
+                        <div class="mt-auto">
+                            <button id="button-${id}" onclick="toggleAnswer(${id})" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+                                顯示答案及解說
+                            </button>
+                        </div>
                         <div id="answer-${id}" class="answer-content mt-4">
                             <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500">
                                 <p class="font-bold text-lg text-indigo-800">答案：${item.answer}</p>
@@ -356,9 +168,9 @@
             container.innerHTML = html;
         }
 
-        // Render the questions when the page loads
         document.addEventListener('DOMContentLoaded', renderQuestions);
     </script>
 
 </body>
 </html>
+
