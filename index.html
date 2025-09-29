@@ -26,7 +26,7 @@
         <!-- Header Section -->
         <header class="text-center mb-12">
             <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">HKDSE ICT 模擬試題中心</h1>
-            <p class="text-xl text-gray-600 mt-3">選擇一份試卷開始練習</p>
+            <p class="text-xl text-gray-600 mt-3">選擇一份試卷或檢視已儲存的題目</p>
         </header>
 
         <!-- Question Sets Grid -->
@@ -50,19 +50,23 @@
                     </div>
                 </a>
                 
-                <!-- Add more question sets here in the future -->
-                <!-- Example of a disabled/coming soon card -->
-                <div class="bg-gray-200 rounded-lg p-6 flex items-center space-x-4 cursor-not-allowed opacity-60">
-                     <div class="bg-gray-400 text-white rounded-lg p-3">
+                <!-- Saved Questions Card -->
+                <a href="saved.html" class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl flex items-center space-x-4 group">
+                    <div class="bg-green-500 text-white rounded-lg p-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
                         </svg>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold text-gray-500">更多試卷</h2>
-                        <p class="text-gray-500">即將推出，敬請期待！</p>
+                        <h2 class="text-xl font-bold text-gray-900">檢視已儲存的題目</h2>
+                        <p class="text-gray-600">複習您已標記的重要題目。</p>
                     </div>
-                </div>
+                    <div class="ml-auto text-gray-400 group-hover:text-green-600 transition-colors duration-300">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </a>
 
             </div>
         </div>
